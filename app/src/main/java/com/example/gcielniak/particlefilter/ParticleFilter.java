@@ -74,9 +74,19 @@ public class ParticleFilter extends Filter{
             cum_weights[i] = cum_weights[i-1] + samples[i].weight;
         }
 
-        double v = random.nextDouble();
+        //find
 
-        int ind = Arrays.binarySearch(cum_weights,v);
+        Sample[] new_samples = new Sample[samples.length];
+        for (Sample s: new_samples) {
+        }
+
+        for (int i = 0; i < samples.length; i++) {
+            double v = random.nextDouble();
+            int ind = Arrays.binarySearch(cum_weights,v);
+            if (ind < 0)
+                ind = -(ind+1);
+            new_samples[i] = samples[ind].clone();
+        }
     }
 
     void Print() {

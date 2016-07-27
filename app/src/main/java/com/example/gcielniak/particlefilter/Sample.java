@@ -36,4 +36,11 @@ public class Sample implements Comparable<Sample> {
 
         return result;
     }
+
+    public Sample clone() {
+        Sample s = new Sample();
+        s.state = this.state;
+        s.weight = this.weight;
+        return s;
+    }
 }
